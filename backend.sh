@@ -31,7 +31,7 @@ CHECK_ROOT(){
 
 echo "Script started executing at: $TIMESTAMP" &>>$LOG_FILE_NAME
 
-CHECK_ROOT
+CHECK_ROOT(){
 if [ $USERID -ne 0 ]
     then
         echo "ERROR:: You must have sudo access to execute this script"
