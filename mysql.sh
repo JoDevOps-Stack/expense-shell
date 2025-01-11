@@ -42,5 +42,5 @@ VALIDATE $? "enabling mysql server"
 systemctl start mysqld &>>$LOG_FILE_NAME
 VALIDATE $? "Starting mysql server"
 
-mysql -h mysql.daws82s.online -u root -pExpenseApp@1 -e 'show databases;' &>>$LOG_FILE_NAME
+mysql_secure_installation --set-root-pass ExpenseApp@!
 VALIDATE $? "setting root pasword"
