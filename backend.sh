@@ -49,7 +49,7 @@ then
  useradd expense &>>$LOG_FILE_NAME
  VALIDATE $? "Adding expense user"
  else
- echo -e "expense user already exists....$Y skipping "
+ echo -e "expense user already exists....$Y skipping $N "
 
  fi
 
