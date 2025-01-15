@@ -34,16 +34,23 @@ echo "Script started executing at: $TIMESTAMP" &>>$LOG_FILE_NAME
 CHECK_ROOT
 
 dnf install nginx -y
-VALIDATE $? "enabling Nginx server"
+VALIDATE $? "installing Nginx server"
 
 systemctl enable nginx &>>$LOG_FILE_NAME
+VALIDATE $? "enabling Nginx server"
+
 
 systemctl start nginx &>>$LOG_FILE_NAME
+VALIDATE $? "starting Nginx server"
+
 
 rm -rf /usr/share/nginx/html/* &>>$LOG_FILE_NAME
+VALIDATE $? "removing existing version of code"
+
 
 
 curl -o /tmp/frontend.zip https://expense-builds.s3.us-east-1.amazonaws.com/expense-frontend-v2.zip &>>$LOG_FILE_NAME
+VALIDATE $? "Downloading latest vode"
 
 
 cd /usr/share/nginx/html
