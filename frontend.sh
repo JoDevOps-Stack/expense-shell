@@ -28,12 +28,12 @@ CHECK_ROOT(){
         exit 1 #other than 0
     fi
 }
-
+mkdir  -p $LOGS_FOLDER
 echo "Script started executing at: $TIMESTAMP" &>>$LOG_FILE_NAME
 
 CHECK_ROOT
 
-dnf install nginx -y
+dnf install nginx -y &>>$LOG_FILE_NAME
 VALIDATE $? "installing Nginx server"
 
 systemctl enable nginx &>>$LOG_FILE_NAME
